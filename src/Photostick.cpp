@@ -8,7 +8,7 @@
 #include "timing.hpp"
 #include "util.hpp"
 #include <SPI.h>
-#include "PhotoStick.h"
+#include "PhotoStick.hpp"
 
 #include <limits.h>
 #include <string.h>

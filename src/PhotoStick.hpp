@@ -1,5 +1,5 @@
-#ifndef PHOTSTICK_H
-#define PHOTSTICK_H
+#ifndef PHOTOSTICK_H
+#define PHOTOSTICK_H
 
 void setBacklight(bool on);
 void initSdCard();

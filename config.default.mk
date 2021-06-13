@@ -1,3 +1,3 @@
 # Copy to config.mk and use
-ARDUINO ?= ~/Programs/arduino-1.8.12/arduino
-PORT ?= /dev/ttyACM0
+ARDUINO ?= C:\Program Files (x86)\Arduino\
+PORT ?= /COM4
