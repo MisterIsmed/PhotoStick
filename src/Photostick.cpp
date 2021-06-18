@@ -58,6 +58,7 @@ void initSdCard()
 {
   Serial.print(F("Initializing SD card..."));
   if (!stick.sd.begin(SD_CS, SD_SCK_MHZ(50))) {
+    Serial.println(stick.sd.sdErrorCode());
     panic(F("failed!"));
   }
   Serial.println(F("OK!"));
