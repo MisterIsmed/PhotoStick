@@ -11,7 +11,7 @@
 #define BACKLIGHT_PIN 3
 
 // Which pin controls SD card chip select?
-#define SD_CS 4
+#define SD_CS 10
 
 // How many leds in your strip?
 #define NUM_LEDS 288
