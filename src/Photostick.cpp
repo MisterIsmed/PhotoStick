@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "../lib/GUIslice/configs/ard-shld-generic1_35_touch1.h"
 #include "FastLED.h"
 #include "SdFat.h"
 #include "bmp.hpp"

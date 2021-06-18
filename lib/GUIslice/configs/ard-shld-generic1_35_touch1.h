@@ -317,7 +317,7 @@ extern "C" {
   // - Note that the inclusion of the SD library consumes considerable
   //   RAM and flash memory which could be problematic for Arduino models
   //   with limited resources.
-  #define GSLC_SD_EN    2
+  #define GSLC_SD_EN    0
 
 
   // =============================================================================
