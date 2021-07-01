@@ -1,8 +1,7 @@
 #include <Arduino.h>
-#include "../lib/GUIslice/configs/ard-shld-generic1_35_touch1.h"
+//#include "../lib/GUIslice/configs/ard-shld-generic1_35_touch1.h"
 #include "FastLED.h"
 #include "SdFat.h"
-#include "../lib/SdFat/src/SpiDriver/SdSpiSoftDriver.h"
 #include "bmp.hpp"
 #include "config.hpp"
 #include "gui.hpp"
