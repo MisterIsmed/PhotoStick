@@ -2,6 +2,7 @@
 #include "../lib/GUIslice/configs/ard-shld-generic1_35_touch1.h"
 #include "FastLED.h"
 #include "SdFat.h"
+#include "../lib/SdFat/src/SpiDriver/SdSpiSoftDriver.h"
 #include "bmp.hpp"
 #include "config.hpp"
 #include "gui.hpp"
@@ -42,6 +43,19 @@ struct
   SdFat         sd;
 } stick;
 
+/* Definitions for Software SPI */
+// Chip select may be constant or RAM variable.
+const uint8_t SD_CS_PIN = 10;
+//
+// Pin numbers in templates must be constants.
+const uint8_t SOFT_MISO_PIN = 12;
+const uint8_t SOFT_MOSI_PIN = 11;
+const uint8_t SOFT_SCK_PIN  = 13;
+
+SoftSpiDriver<SOFT_MISO_PIN, SOFT_MOSI_PIN, SOFT_SCK_PIN> softSpi;
+#define SD_CONFIG SdSpiConfig(SD_CS_PIN, SHARED_SPI, SD_SCK_MHZ(0), &softSpi)
+/* End Definitions for Software SPI */
+
 #ifdef ENABLE_TIMING
 Timing::Stats statLoad;
 Timing::Stats statShow;
@@ -57,10 +71,12 @@ void setBacklight(bool on)
 
 void initSdCard()
 {
-  Serial.print(F("Initializing SD card..."));
-  if (!stick.sd.begin(SD_CS, SD_SCK_MHZ(50))) {
-    Serial.println(stick.sd.sdErrorCode());
-    panic(F("failed!"));
+  Serial.println(F("Initializing SD card... "));
+  if (!stick.sd.begin(SD_CONFIG) ) {
+  //if (!stick.sd.begin(SD_CS, SD_SCK_MHZ(15))) {
+    //Serial.println(stick.sd.sdErrorCode());
+    stick.sd.printSdError(&Serial);
+    panic(F("SD Init ... failed!"));
   }
   Serial.println(F("OK!"));
 }
