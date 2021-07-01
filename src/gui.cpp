@@ -566,11 +566,8 @@ void Gui::init(SdFat &sd)
                        STR_PROJECT_NAME, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-
-  gslc_ElemCreateTxt_P(&gui, MAIN_STATUS, Page::MAIN, 300, 0, 100, 70, 
-                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
-                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
-                        false, false );
+  gslc_ElemCreateTxt(&gui, MAIN_STATUS, Page::MAIN, (gslc_tsRect){300, 20, 80, 20}, 
+                        STR_STATUS, 15, Font::TEXT);
 
   gslc_ElemCreateBox_P(&gui, MAIN_BOX, Page::MAIN, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
@@ -601,11 +598,8 @@ void Gui::init(SdFat &sd)
                        STR_IMAGE, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-
-  gslc_ElemCreateTxt_P(&gui, PLAY1_STATUS, Page::PLAY1, 300, 0, 100, 70, 
-                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
-                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
-                        false, false );
+  gslc_ElemCreateTxt(&gui, PLAY1_STATUS, Page::PLAY1, (gslc_tsRect){300, 20, 80, 20}, 
+                        STR_STATUS, 15, Font::TEXT);
 
   gslc_ElemCreateBtnTxt_P(&gui, PLAY1_BUTTON_BACK, Page::PLAY1, 10, 10, 70, 50,
                           STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
@@ -669,11 +663,9 @@ void Gui::init(SdFat &sd)
                          STR_CREATIVE, &fonts[Font::TITLE], TITLE_COL2,
                          GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                          false, false);
-    gslc_ElemCreateTxt_P(&gui, CREATIVE1_STATUS, Page::CREATIVE1, 300, 0, 100, 70, 
-                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
-                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
-                        false, false );
-
+    gslc_ElemCreateTxt(&gui, CREATIVE1_STATUS, Page::CREATIVE1, (gslc_tsRect){300, 20, 80, 20}, 
+                          STR_STATUS, 15, Font::TEXT);
+    
     gslc_ElemCreateBtnTxt_P(&gui, CREATIVE1_BUTTON_BACK, Page::CREATIVE1, 10,
                             10, 70, 50, STR_BACK, &fonts[Font::TEXT],
                             GSLC_COL_WHITE, GSLC_COL_BLUE_DK2,
@@ -785,10 +777,9 @@ void Gui::init(SdFat &sd)
                        STR_CONFIG, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, CONFIG1_STATUS, Page::CONFIG1, 300, 0, 100, 70, 
-                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
-                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
-                        false, false );
+  gslc_ElemCreateTxt(&gui, CONFIG1_STATUS, Page::CONFIG1, (gslc_tsRect){300, 20, 80, 20}, 
+                        STR_STATUS, 15, Font::TEXT);
+
   gslc_ElemCreateBtnTxt_P(&gui, CONFIG1_BUTTON_BACK, Page::CONFIG1, 10, 10, 70,
                           50, STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
@@ -899,12 +890,18 @@ void Gui::init(SdFat &sd)
   Serial.println(F("successful"));
 }
 
-void Gui::update(bool enableWarning)
+void Gui::update(bool enableWarning, bool isRunning)
 {
   if (enableWarning) {
     gslc_SetBkgndColor(&gui, GSLC_COL_RED_DK1);
   }
-
+/*
+  if(isRunning) {
+    gslc_ElemSetTxtStr(&gui, &elemRefs[Elem::MAIN_STATUS], "Painting....");
+  } else {
+    gslc_ElemSetTxtStr(&gui, &elemRefs[Elem::MAIN_STATUS] , "Status OK");
+  }
+*/
   gslc_Update(&gui);
 }
 

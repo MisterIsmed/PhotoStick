@@ -31,8 +31,9 @@ namespace Gui
 void init(SdFat &sd);
 
 // Update GUI, must be called periodically.  If enableWarning is true, sets
-// background color to red (to warn about low battery voltage).
-void update(bool enableWarning);
+// background color to red (to warn about low battery voltage). 
+// If is Running is true, will update status text
+void update(bool enableWarning, bool isRunning);
 
 // Return true if user has requested to launch IMAGE or CREATIVE mode.
 // In this case, cfg will be updated to carry all user-configured settings.

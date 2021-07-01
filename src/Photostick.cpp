@@ -156,7 +156,7 @@ void loop()
     const bool isBatteryVoltageLow = false;
 #endif
 
-    Gui::update(isBatteryVoltageLow);
+    Gui::update(isBatteryVoltageLow, false);
     break;
   }
   case StickState::IMAGE:
@@ -208,6 +208,7 @@ void loop()
 
   case StickState::IMAGE:
   case StickState::CREATIVE:
+    Gui::update(false, true);
     if (stick.step == stick.maxStep) {
       --stick.repetitions;
       stick.step = 0;
@@ -229,6 +230,7 @@ void loop()
       statLoad.println();
       statLoad = Timing::Stats();
 #endif
+    Gui::update(false, false);
     }
     break;
 
