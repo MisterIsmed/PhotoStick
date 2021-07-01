@@ -1,5 +1,4 @@
 #include <Arduino.h>
-//#include "../lib/GUIslice/configs/ard-shld-generic1_35_touch1.h"
 #include "FastLED.h"
 #include "SdFat.h"
 #include "bmp.hpp"
@@ -139,6 +138,10 @@ uint16_t getAnimationSteps(Animation anim)
     return 0;
   }
 }
+
+// TODO Change sort order of files
+// TODO Increase size of Menu for 3.5 Display
+// TODO Add "Status Bar". Prints error of file, shows that LED is running
 
 void loop()
 {
