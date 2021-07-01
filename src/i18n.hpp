@@ -19,6 +19,7 @@
 #define STR_SPEED "Geschwindigkeit"
 #define STR_COUNTDOWN "Countdown"
 #define STR_REPETITIONS "Wiederholungen"
+#define STR_STATUS "Status OK"
 #else
 /* English */
 #define STR_PROJECT_NAME "Photostick"
@@ -35,6 +36,7 @@
 #define STR_SPEED "Speed"
 #define STR_COUNTDOWN "Countdown"
 #define STR_REPETITIONS "Repetitions"
+#define STR_STATUS "Status OK"
 #endif
 
 #endif

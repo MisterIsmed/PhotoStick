@@ -26,12 +26,14 @@ enum Elem
   MAIN_BOX,
   MAIN_TITLE1,
   MAIN_TITLE2,
+  MAIN_STATUS,
   MAIN_BUTTON_PLAY,
   MAIN_BUTTON_CREATIVE,
 
   PLAY1_BOX,
   PLAY1_TITLE1,
   PLAY1_TITLE2,
+  PLAY1_STATUS,
   PLAY1_BUTTON_BACK,
   PLAY1_BUTTON_FORWARD,
   PLAY1_BUTTON_PREV_FILESET,
@@ -50,6 +52,7 @@ enum Elem
   CREATIVE1_BOX,
   CREATIVE1_TITLE1,
   CREATIVE1_TITLE2,
+  CREATIVE1_STATUS,
   CREATIVE1_BUTTON_BACK,
   CREATIVE1_BUTTON_GO,
   CREATIVE1_SLIDER_R,
@@ -66,6 +69,7 @@ enum Elem
   CONFIG1_BOX,
   CONFIG1_TITLE1,
   CONFIG1_TITLE2,
+  CONFIG1_STATUS,
   CONFIG1_BUTTON_BACK,
   CONFIG1_BUTTON_GO,
   CONFIG1_TEXT_BRIGHTNESS,
@@ -554,14 +558,19 @@ void Gui::init(SdFat &sd)
     28, 70, 123    \
   }
 #define TITLE_COL2 (gslc_tsColor){ 54, 188, 250 }
-  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE1, Page::MAIN, 2, 2, 480,  70,
+  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE1, Page::MAIN, 2, 2, 300,  70,
                        STR_PROJECT_NAME, &fonts[Font::TITLE], TITLE_COL1,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE2, Page::MAIN, 0, 0, 480, 70,
+  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE2, Page::MAIN, 0, 0, 300, 70,
                        STR_PROJECT_NAME, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
+
+  gslc_ElemCreateTxt_P(&gui, MAIN_STATUS, Page::MAIN, 300, 0, 100, 70, 
+                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
+                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
+                        false, false );
 
   gslc_ElemCreateBox_P(&gui, MAIN_BOX, Page::MAIN, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
@@ -584,14 +593,19 @@ void Gui::init(SdFat &sd)
    */
   gslc_ElemCreateBox_P(&gui, PLAY1_BOX, Page::PLAY1, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
-  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE1, Page::PLAY1, 2, 2, 480, 70,
+  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE1, Page::PLAY1, 2, 2, 300, 70,
                        STR_IMAGE, &fonts[Font::TITLE], TITLE_COL1,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE2, Page::PLAY1, 0, 0, 480, 70,
+  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE2, Page::PLAY1, 0, 0, 300, 70,
                        STR_IMAGE, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
+
+  gslc_ElemCreateTxt_P(&gui, PLAY1_STATUS, Page::PLAY1, 300, 0, 100, 70, 
+                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
+                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
+                        false, false );
 
   gslc_ElemCreateBtnTxt_P(&gui, PLAY1_BUTTON_BACK, Page::PLAY1, 10, 10, 70, 50,
                           STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
@@ -647,14 +661,19 @@ void Gui::init(SdFat &sd)
     gslc_ElemCreateBox_P(&gui, CREATIVE1_BOX, Page::CREATIVE1, 10, 70, 460, 240,
                          GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL,
                          NULL);
-    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE1, Page::CREATIVE1, 2, 2, 480, 70,
+    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE1, Page::CREATIVE1, 2, 2, 300, 70,
                          STR_CREATIVE, &fonts[Font::TITLE], TITLE_COL1,
                          GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                          false, false);
-    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE2, Page::CREATIVE1, 0, 0, 480, 70,
+    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE2, Page::CREATIVE1, 0, 0, 300, 70,
                          STR_CREATIVE, &fonts[Font::TITLE], TITLE_COL2,
                          GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                          false, false);
+    gslc_ElemCreateTxt_P(&gui, CREATIVE1_STATUS, Page::CREATIVE1, 300, 0, 100, 70, 
+                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
+                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
+                        false, false );
+
     gslc_ElemCreateBtnTxt_P(&gui, CREATIVE1_BUTTON_BACK, Page::CREATIVE1, 10,
                             10, 70, 50, STR_BACK, &fonts[Font::TEXT],
                             GSLC_COL_WHITE, GSLC_COL_BLUE_DK2,
@@ -758,14 +777,18 @@ void Gui::init(SdFat &sd)
    */
   gslc_ElemCreateBox_P(&gui, CONFIG1_BOX, Page::CONFIG1, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
-  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE1, Page::CONFIG1, 2, 2, 480, 70,
+  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE1, Page::CONFIG1, 2, 2, 300, 70,
                        STR_CONFIG, &fonts[Font::TITLE], TITLE_COL1,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE2, Page::CONFIG1, 0, 0, 480, 70,
+  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE2, Page::CONFIG1, 0, 0, 300, 70,
                        STR_CONFIG, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
+  gslc_ElemCreateTxt_P(&gui, CONFIG1_STATUS, Page::CONFIG1, 300, 0, 100, 70, 
+                        STR_STATUS, &fonts[Font::TEXT], GSLC_COL_GREEN, 
+                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
+                        false, false );
   gslc_ElemCreateBtnTxt_P(&gui, CONFIG1_BUTTON_BACK, Page::CONFIG1, 10, 10, 70,
                           50, STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
