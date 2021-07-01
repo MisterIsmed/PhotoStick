@@ -140,7 +140,6 @@ uint16_t getAnimationSteps(Animation anim)
 }
 
 // TODO Change sort order of files
-// TODO Increase size of Menu for 3.5 Display
 // TODO Add "Status Bar". Prints error of file, shows that LED is running
 
 void loop()

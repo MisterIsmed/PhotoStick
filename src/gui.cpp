@@ -554,25 +554,25 @@ void Gui::init(SdFat &sd)
     28, 70, 123    \
   }
 #define TITLE_COL2 (gslc_tsColor){ 54, 188, 250 }
-  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE1, Page::MAIN, 2, 2, 480,  50,
+  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE1, Page::MAIN, 2, 2, 480,  70,
                        STR_PROJECT_NAME, &fonts[Font::TITLE], TITLE_COL1,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE2, Page::MAIN, 0, 0, 480, 50,
+  gslc_ElemCreateTxt_P(&gui, MAIN_TITLE2, Page::MAIN, 0, 0, 480, 70,
                        STR_PROJECT_NAME, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
 
-  gslc_ElemCreateBox_P(&gui, MAIN_BOX, Page::MAIN, 10, 50, 460, 260,
+  gslc_ElemCreateBox_P(&gui, MAIN_BOX, Page::MAIN, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
-  gslc_ElemCreateBtnTxt_P(&gui, MAIN_BUTTON_PLAY, Page::MAIN, 120, 75, 240, 100,
+  gslc_ElemCreateBtnTxt_P(&gui, MAIN_BUTTON_PLAY, Page::MAIN, 120, 90, 240, 80,
                           STR_IMAGE, &fonts[Font::TITLE], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK1,
                           GSLC_ALIGN_MID_MID, true, true, &buttonClicked,
                           nullptr);
   gslc_ElemCreateBtnTxt_P(&gui, MAIN_BUTTON_CREATIVE, Page::MAIN, 120, 200, 240,
-                          100, STR_CREATIVE, &fonts[Font::TITLE], GSLC_COL_WHITE,
+                          80, STR_CREATIVE, &fonts[Font::TITLE], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK1,
                           GSLC_ALIGN_MID_MID, true, true, &buttonClicked,
@@ -582,25 +582,25 @@ void Gui::init(SdFat &sd)
   /*
    * PLAY1 PAGE
    */
-  gslc_ElemCreateBox_P(&gui, PLAY1_BOX, Page::PLAY1, 10, 50, 460, 260,
+  gslc_ElemCreateBox_P(&gui, PLAY1_BOX, Page::PLAY1, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
-  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE1, Page::PLAY1, 2, 2, 480, 50,
+  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE1, Page::PLAY1, 2, 2, 480, 70,
                        STR_IMAGE, &fonts[Font::TITLE], TITLE_COL1,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE2, Page::PLAY1, 0, 0, 480, 50,
+  gslc_ElemCreateTxt_P(&gui, PLAY1_TITLE2, Page::PLAY1, 0, 0, 480, 70,
                        STR_IMAGE, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
 
-  gslc_ElemCreateBtnTxt_P(&gui, PLAY1_BUTTON_BACK, Page::PLAY1, 10, 10, 50, 30,
+  gslc_ElemCreateBtnTxt_P(&gui, PLAY1_BUTTON_BACK, Page::PLAY1, 10, 10, 70, 50,
                           STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK1,
                           GSLC_ALIGN_MID_MID, true, true, &buttonClicked,
                           nullptr);
-  gslc_ElemCreateBtnTxt_P(&gui, PLAY1_BUTTON_FORWARD, Page::PLAY1, 420, 10, 50,
-                          30, STR_FORWARD, &fonts[Font::TEXT], GSLC_COL_WHITE,
+  gslc_ElemCreateBtnTxt_P(&gui, PLAY1_BUTTON_FORWARD, Page::PLAY1, 400, 10, 70,
+                          50, STR_FORWARD, &fonts[Font::TEXT], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK1,
                           GSLC_ALIGN_MID_MID, true, true, &buttonClicked,
@@ -628,7 +628,7 @@ void Gui::init(SdFat &sd)
     filenames[i][0]     = '\0';
     gslc_tsElemRef *btn = gslc_ElemCreateBtnTxt(
       &gui, Elem::PLAY1_BUTTON_FILE1 + i, Page::PLAY1,
-      (gslc_tsRect){ 75 + (180 * col), 70 + (row * 48), 150, 35 }, &filenames[i][0],
+      (gslc_tsRect){ 75 + (180 * col), 80 + (row * 45), 150, 30 }, &filenames[i][0],
       MAX_FILENAME_LENGTH, Font::TEXT, &buttonClicked);
     gslc_ElemSetVisible(&gui, btn, false);
   }
@@ -644,25 +644,25 @@ void Gui::init(SdFat &sd)
     const uint16_t slideWidth  = 200;
     const uint16_t slideHeight = 50;
 
-    gslc_ElemCreateBox_P(&gui, CREATIVE1_BOX, Page::CREATIVE1, 10, 50, 460, 260,
+    gslc_ElemCreateBox_P(&gui, CREATIVE1_BOX, Page::CREATIVE1, 10, 70, 460, 240,
                          GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL,
                          NULL);
-    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE1, Page::CREATIVE1, 2, 2, 480, 50,
+    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE1, Page::CREATIVE1, 2, 2, 480, 70,
                          STR_CREATIVE, &fonts[Font::TITLE], TITLE_COL1,
                          GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                          false, false);
-    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE2, Page::CREATIVE1, 0, 0, 480, 50,
+    gslc_ElemCreateTxt_P(&gui, CREATIVE1_TITLE2, Page::CREATIVE1, 0, 0, 480, 70,
                          STR_CREATIVE, &fonts[Font::TITLE], TITLE_COL2,
                          GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                          false, false);
     gslc_ElemCreateBtnTxt_P(&gui, CREATIVE1_BUTTON_BACK, Page::CREATIVE1, 10,
-                            10, 50, 30, STR_BACK, &fonts[Font::TEXT],
+                            10, 70, 50, STR_BACK, &fonts[Font::TEXT],
                             GSLC_COL_WHITE, GSLC_COL_BLUE_DK2,
                             GSLC_COL_BLUE_DK4, GSLC_COL_BLUE_DK2,
                             GSLC_COL_BLUE_DK1, GSLC_ALIGN_MID_MID, true, true,
                             &buttonClicked, nullptr);
-    gslc_ElemCreateBtnTxt_P(&gui, CREATIVE1_BUTTON_GO, Page::CREATIVE1, 420, 10,
-                            50, 30, STR_START, &fonts[Font::TEXT],
+    gslc_ElemCreateBtnTxt_P(&gui, CREATIVE1_BUTTON_GO, Page::CREATIVE1, 400, 10,
+                            70, 50, STR_START, &fonts[Font::TEXT],
                             GSLC_COL_WHITE, GSLC_COL_BLUE_DK2,
                             GSLC_COL_BLUE_DK4, GSLC_COL_BLUE_DK2,
                             GSLC_COL_BLUE_DK1, GSLC_ALIGN_MID_MID, true, true,
@@ -675,7 +675,7 @@ void Gui::init(SdFat &sd)
     {
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CREATIVE1_SLIDER_R, Page::CREATIVE1, &sliderR,
-        (gslc_tsRect){ 20, 70, slideWidth, slideHeight }, 0, 255, 255,
+        (gslc_tsRect){ 20, 75, slideWidth, slideHeight }, 0, 255, 255,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_RED, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -686,7 +686,7 @@ void Gui::init(SdFat &sd)
     {
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CREATIVE1_SLIDER_G, Page::CREATIVE1, &sliderG,
-        (gslc_tsRect){ 20, 130, slideWidth, slideHeight }, 0, 255, 255,
+        (gslc_tsRect){ 20, 135, slideWidth, slideHeight }, 0, 255, 255,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_GREEN, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -697,7 +697,7 @@ void Gui::init(SdFat &sd)
     {
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CREATIVE1_SLIDER_B, Page::CREATIVE1, &sliderB,
-        (gslc_tsRect){ 20, 190, slideWidth, slideHeight }, 0, 255, 255,
+        (gslc_tsRect){ 20, 195, slideWidth, slideHeight }, 0, 255, 255,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_BLUE, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -708,46 +708,46 @@ void Gui::init(SdFat &sd)
     {
       gslc_tsElemRef *colorbox =
         gslc_ElemCreateBox(&gui, CREATIVE1_COLORBOX, Page::CREATIVE1,
-                           (gslc_tsRect){ 190, 250, 80, 50 });
+                           (gslc_tsRect){ 190, 255, 80, 50 });
       gslc_ElemSetCol(&gui, colorbox, GSLC_COL_WHITE, GSLC_COL_WHITE,
                       GSLC_COL_WHITE);
     }
     {
       gslc_tsElemRef *checkbox = gslc_ElemXCheckboxCreate(
         &gui, CREATIVE1_PATTERN_LIGHT_BOX, Page::CREATIVE1, &checkboxLight,
-        (gslc_tsRect){ 260, 80, 25, 25 }, true, GSLCX_CHECKBOX_STYLE_ROUND,
+        (gslc_tsRect){ 260, 85, 25, 25 }, true, GSLCX_CHECKBOX_STYLE_ROUND,
         TITLE_COL2, true);
       gslc_ElemSetCol(&gui, checkbox, GSLC_COL_WHITE, GSLC_COL_WHITE,
                       GSLC_COL_WHITE);
       gslc_ElemSetGroup(&gui, checkbox, 1);
       gslc_ElemCreateTxt_P(&gui, CREATIVE1_PATTERN_LIGHT_LABEL, Page::CREATIVE1,
-                           310, 80, 80, 35, STR_LIGHT_1_SEC, &fonts[Font::TEXT],
+                           310, 85, 80, 35, STR_LIGHT_1_SEC, &fonts[Font::TEXT],
                            GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK,
                            GSLC_ALIGN_MID_MID, false, false);
     }
     {
       gslc_tsElemRef *checkbox = gslc_ElemXCheckboxCreate(
         &gui, CREATIVE1_PATTERN_BLINK_BOX, Page::CREATIVE1, &checkboxBlink,
-        (gslc_tsRect){ 260, 140, 25, 25 }, true, GSLCX_CHECKBOX_STYLE_ROUND,
+        (gslc_tsRect){ 260, 145, 25, 25 }, true, GSLCX_CHECKBOX_STYLE_ROUND,
         TITLE_COL2, false);
       gslc_ElemSetCol(&gui, checkbox, GSLC_COL_WHITE, GSLC_COL_WHITE,
                       GSLC_COL_WHITE);
       gslc_ElemSetGroup(&gui, checkbox, 1);
       gslc_ElemCreateTxt_P(&gui, CREATIVE1_PATTERN_BLINK_LABEL, Page::CREATIVE1,
-                           310, 140, 80, 35, STR_BLINK_1_SEC,
+                           310, 145, 80, 35, STR_BLINK_1_SEC,
                            &fonts[Font::TEXT], GSLC_COL_WHITE, GSLC_COL_BLACK,
                            GSLC_COL_BLACK, GSLC_ALIGN_MID_MID, false, false);
     }
     {
       gslc_tsElemRef *checkbox = gslc_ElemXCheckboxCreate(
         &gui, CREATIVE1_PATTERN_MARQUEE_BOX, Page::CREATIVE1, &checkboxMarquee,
-        (gslc_tsRect){ 260, 200, 25, 25 }, true, GSLCX_CHECKBOX_STYLE_ROUND,
+        (gslc_tsRect){ 260, 205, 25, 25 }, true, GSLCX_CHECKBOX_STYLE_ROUND,
         TITLE_COL2, false);
       gslc_ElemSetCol(&gui, checkbox, GSLC_COL_WHITE, GSLC_COL_WHITE,
                       GSLC_COL_WHITE);
       gslc_ElemSetGroup(&gui, checkbox, 1);
       gslc_ElemCreateTxt_P(&gui, CREATIVE1_PATTERN_MARQUEE_LABEL,
-                           Page::CREATIVE1, 310, 200, 80, 35, STR_MARQUEE,
+                           Page::CREATIVE1, 310, 205, 80, 35, STR_MARQUEE,
                            &fonts[Font::TEXT], GSLC_COL_WHITE, GSLC_COL_BLACK,
                            GSLC_COL_BLACK, GSLC_ALIGN_MID_MID, false, false);
     }
@@ -756,24 +756,24 @@ void Gui::init(SdFat &sd)
   /*
    * CONFIG1 PAGE
    */
-  gslc_ElemCreateBox_P(&gui, CONFIG1_BOX, Page::CONFIG1, 10, 50, 460, 260,
+  gslc_ElemCreateBox_P(&gui, CONFIG1_BOX, Page::CONFIG1, 10, 70, 460, 240,
                        GSLC_COL_WHITE, GSLC_COL_BLACK, true, true, NULL, NULL);
-  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE1, Page::CONFIG1, 2, 2, 480, 50,
+  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE1, Page::CONFIG1, 2, 2, 480, 70,
                        STR_CONFIG, &fonts[Font::TITLE], TITLE_COL1,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE2, Page::CONFIG1, 0, 0, 480, 50,
+  gslc_ElemCreateTxt_P(&gui, CONFIG1_TITLE2, Page::CONFIG1, 0, 0, 480, 70,
                        STR_CONFIG, &fonts[Font::TITLE], TITLE_COL2,
                        GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                        false, false);
-  gslc_ElemCreateBtnTxt_P(&gui, CONFIG1_BUTTON_BACK, Page::CONFIG1, 10, 10, 50,
-                          30, STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
+  gslc_ElemCreateBtnTxt_P(&gui, CONFIG1_BUTTON_BACK, Page::CONFIG1, 10, 10, 70,
+                          50, STR_BACK, &fonts[Font::TEXT], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK1,
                           GSLC_ALIGN_MID_MID, true, true, &buttonClicked,
                           nullptr);
-  gslc_ElemCreateBtnTxt_P(&gui, CONFIG1_BUTTON_GO, Page::CONFIG1, 420, 10, 50,
-                          30, STR_START, &fonts[Font::TEXT], GSLC_COL_WHITE,
+  gslc_ElemCreateBtnTxt_P(&gui, CONFIG1_BUTTON_GO, Page::CONFIG1, 400, 10, 70,
+                          50, STR_START, &fonts[Font::TEXT], GSLC_COL_WHITE,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK4,
                           GSLC_COL_BLUE_DK2, GSLC_COL_BLUE_DK1,
                           GSLC_ALIGN_MID_MID, true, true, &buttonClicked,
@@ -785,14 +785,14 @@ void Gui::init(SdFat &sd)
     const uint16_t tickLen          = 8;
     const uint16_t thumbControlSize = 12;
     {
-      gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_BRIGHTNESS, Page::CONFIG1, 10, 60,
+      gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_BRIGHTNESS, Page::CONFIG1, 10, 80,
                            120, 50, STR_BRIGHTNESS, &fonts[Font::TEXT],
                            GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK,
                            GSLC_ALIGN_MID_MID, false, false);
 
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CONFIG1_SLIDER_BRIGHTNESS, Page::CONFIG1, &sliderBrightness,
-        (gslc_tsRect){ 130, 60, slideWidth, slideHeight }, 0, 10, 2,
+        (gslc_tsRect){ 130, 80, slideWidth, slideHeight }, 0, 10, 2,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_WHITE, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -802,18 +802,18 @@ void Gui::init(SdFat &sd)
 
       static char text[] = " 20%";
       gslc_ElemCreateTxt(&gui, CONFIG1_INFO_BRIGHTNESS, Page::CONFIG1,
-                         (gslc_tsRect){ 400, 70, 20, 30 }, &text[0],
+                         (gslc_tsRect){ 400, 90, 20, 30 }, &text[0],
                          sizeof(text), Font::TEXT);
     }
     {
-      gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_SPEED, Page::CONFIG1, 10, 120, 120,
+      gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_SPEED, Page::CONFIG1, 10, 140, 120,
                            50, STR_SPEED, &fonts[Font::TEXT], GSLC_COL_WHITE,
                            GSLC_COL_BLACK, GSLC_COL_BLACK, GSLC_ALIGN_MID_MID,
                            false, false);
 
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CONFIG1_SLIDER_SPEED, Page::CONFIG1, &sliderSpeed,
-        (gslc_tsRect){ 130, 120, slideWidth, slideHeight }, 0, 10, 10,
+        (gslc_tsRect){ 130, 140, slideWidth, slideHeight }, 0, 10, 10,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_WHITE, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -823,18 +823,18 @@ void Gui::init(SdFat &sd)
 
       static char text[] = "100%";
       gslc_ElemCreateTxt(&gui, CONFIG1_INFO_SPEED, Page::CONFIG1,
-                         (gslc_tsRect){ 400, 130, 20, 30 }, &text[0],
+                         (gslc_tsRect){ 400, 150, 20, 30 }, &text[0],
                          sizeof(text), Font::TEXT);
     }
     {
-      gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_COUNTDOWN, Page::CONFIG1, 10, 170,
+      gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_COUNTDOWN, Page::CONFIG1, 10, 190,
                            120, 50, STR_COUNTDOWN, &fonts[Font::TEXT],
                            GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK,
                            GSLC_ALIGN_MID_MID, false, false);
 
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CONFIG1_SLIDER_COUNTDOWN, Page::CONFIG1, &sliderCountdown,
-        (gslc_tsRect){ 130, 170, slideWidth, slideHeight }, 0, 5, 2,
+        (gslc_tsRect){ 130, 190, slideWidth, slideHeight }, 0, 5, 2,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_WHITE, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -844,18 +844,18 @@ void Gui::init(SdFat &sd)
 
       static char text[] = "2 Sek";
       gslc_ElemCreateTxt(&gui, CONFIG1_INFO_COUNTDOWN, Page::CONFIG1,
-                         (gslc_tsRect){ 400, 180, 20, 30 }, &text[0],
+                         (gslc_tsRect){ 400, 200, 20, 30 }, &text[0],
                          sizeof(text), Font::TEXT);
     }
     {
       gslc_ElemCreateTxt_P(&gui, CONFIG1_TEXT_REPETITIONS, Page::CONFIG1, 10,
-                           220, 120, 50, STR_REPETITIONS, &fonts[Font::TEXT],
+                           240, 120, 50, STR_REPETITIONS, &fonts[Font::TEXT],
                            GSLC_COL_WHITE, GSLC_COL_BLACK, GSLC_COL_BLACK,
                            GSLC_ALIGN_MID_MID, false, false);
 
       gslc_tsElemRef *slider = gslc_ElemXSliderCreate(
         &gui, CONFIG1_SLIDER_REPETITIONS, Page::CONFIG1, &sliderRepetitions,
-        (gslc_tsRect){ 130, 220, slideWidth, slideHeight }, 1, 5, 1,
+        (gslc_tsRect){ 130, 240, slideWidth, slideHeight }, 1, 5, 1,
         thumbControlSize, false);
       gslc_ElemSetCol(&gui, slider, GSLC_COL_WHITE, GSLC_COL_BLACK,
                       GSLC_COL_BLACK);
@@ -865,7 +865,7 @@ void Gui::init(SdFat &sd)
 
       static char text[] = "1 x";
       gslc_ElemCreateTxt(&gui, CONFIG1_INFO_REPETITIONS, Page::CONFIG1,
-                         (gslc_tsRect){ 400, 230, 20, 30 }, &text[0],
+                         (gslc_tsRect){ 400, 250, 20, 30 }, &text[0],
                          sizeof(text), Font::TEXT);
     }
   }
