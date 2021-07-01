@@ -14,6 +14,7 @@ struct BMPFile
   boolean  flip;
   uint8_t  depth;
   uint32_t height;
+  uint32_t width;
   uint32_t imageOffset;
 };
 
