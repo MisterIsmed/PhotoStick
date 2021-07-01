@@ -5,7 +5,7 @@
 // just need to define DATA_PIN.  For led chipsets that are SPI based (four
 // wires - data, clock, ground, and power), like the LPD8806 define both
 // DATA_PIN and CLOCK_PIN
-#define DATA_PIN 2
+#define DATA_PIN 31
 
 // Which pin controls the backlight state (off/on)?
 #define BACKLIGHT_PIN 3
@@ -25,7 +25,7 @@
 
 // Define this to flip the display.
 // Comment out to keep default orientation.
-#define FLIP_DISPLAY
+//#define FLIP_DISPLAY
 
 // Language to use
 #define LANGUAGE_GERMAN
