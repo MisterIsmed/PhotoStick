@@ -58,8 +58,12 @@ void BMP::open(SdFat &sd, BMPFile &bmpFile, const char *filename)
   Serial.print(F("Header size: "));
   Serial.println(read32(bmpFile));
 
-  if (read32(bmpFile) != BMP_WIDTH) {
-    panic(F("Width must be 288"));
+
+  // FIXME: change to if > BMP_WIDTH, or change back to !=
+  if (read32(bmpFile) >= BMP_WIDTH) {
+    Serial.println("Imgage Width must be < 288");
+    return;
+    //panic(F("Width must be 288"));
   }
 
   uint32_t height = read32(bmpFile);
@@ -89,6 +93,7 @@ void BMP::open(SdFat &sd, BMPFile &bmpFile, const char *filename)
   const uint32_t rowSize = (BMP_WIDTH * bmpFile.depth / 8 + 3U) & ~3U;
 
   Serial.print(F("Image size: 288"));
+  //Serial.println(bmpFile.);
   Serial.print('x');
   Serial.println(bmpFile.height);
   Serial.print(F("Row size: "));
