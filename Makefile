@@ -1,11 +1,11 @@
 -include config.mk
 
-all: Photostick.ino
+all: Photostick.cpp
 	$(ARDUINO) --verify $<
 
 # -Wl,-Map=output.map
-debug: Photostick.ino
+debug: Photostick.cpp
 	$(ARDUINO) --verbose-build --preserve-temp-files --verify $<
 
-upload: Photostick.ino
+upload: Photostick.cpp
 	$(ARDUINO) --upload $< --port $(PORT)
