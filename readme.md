@@ -1,9 +1,12 @@
 # PhotoStick
 This is a fork of https://github.com/manuelmohr/PhotoStick. The goal of this fork is to:
-- Change the development environment to Platform IO 
-- Adapt it to use it with a generic 3.5" TFT with microSD-Slot on an Arduino Mega (which is just the Hardware I had at hand.)
-- Possibly some ideas to add a status bar 
+- Done: Change the development environment to Platform IO 
+- Done: Make it work with generic 3.5" TFT screen
+- Done: Changed to use Software SPI to connect to microSD. Speed is sufficient for this application
+- Done: Adapted GUI to a larger 3.5" TFT
 - Make it work with images < 288 pixels widht
+- Possibly add a status bar to indicate errors with files or that display is running
+- Make Backlight dimming work with 3,5" TFT
 
 
 # What is this?
