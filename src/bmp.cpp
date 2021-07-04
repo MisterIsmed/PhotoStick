@@ -58,13 +58,15 @@ void BMP::open(SdFat &sd, BMPFile &bmpFile, const char *filename)
   Serial.print(F("Header size: "));
   Serial.println(read32(bmpFile));
 
-
+  //Read witdth of image
+  uint32_t width = read32(bmpFile);
   // FIXME: change to if > BMP_WIDTH, or change back to !=
-  if (read32(bmpFile) > BMP_WIDTH) {
-    Serial.println("Imgage Width must be < 288");
-    return;
+  if (width > NUM_LEDS) {
+    Serial.println("Imgage Width must be < NUM_LEDS (288)");
+    //return;
     //panic(F("Width must be 288"));
   }
+  bmpFile.width = width;
 
   uint32_t height = read32(bmpFile);
   boolean  flip   = true;
@@ -90,10 +92,10 @@ void BMP::open(SdFat &sd, BMPFile &bmpFile, const char *filename)
   }
 
   // BMP rows are padded (if needed) to 4-byte boundary
-  const uint32_t rowSize = (BMP_WIDTH * bmpFile.depth / 8 + 3U) & ~3U;
+  const uint32_t rowSize = (bmpFile.width * bmpFile.depth / 8 + 3U) & ~3U;
 
-  Serial.print(F("Image size: 288"));
-  //Serial.println(bmpFile.);
+  Serial.print(F("Image size: "));
+  Serial.print(bmpFile.width);
   Serial.print('x');
   Serial.println(bmpFile.height);
   Serial.print(F("Row size: "));
@@ -102,7 +104,7 @@ void BMP::open(SdFat &sd, BMPFile &bmpFile, const char *filename)
 
 void BMP::loadRow(BMPFile &bmpFile, uint32_t row, CRGB *leds)
 {
-  const uint32_t rowSize = (BMP_WIDTH * bmpFile.depth / 8 + 3U) & ~3U;
+  const uint32_t rowSize = (bmpFile.width * bmpFile.depth / 8 + 3U) & ~3U;
 
   uint32_t pos;
   if (bmpFile.flip) { // Normal case
