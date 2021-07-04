@@ -1,3 +1,11 @@
+# PhotoStick
+This is a fork of https://github.com/manuelmohr/PhotoStick. The goal of this fork is to:
+- Change the development environment to Platform IO 
+- Adapt it to use it with a generic 3.5" TFT with microSD-Slot on an Arduino Mega (which is just the Hardware I had at hand.)
+- Possibly some ideas to add a status bar 
+- Make it work with images < 288 pixels widht
+
+
 # What is this?
 - The photo stick is a DIY project to build an LED-based light-painting device
 - Using long exposure times, the photo stick allows you to project arbitrary images into the air
