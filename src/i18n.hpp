@@ -19,7 +19,7 @@
 #define STR_SPEED "Geschwindigkeit"
 #define STR_COUNTDOWN "Countdown"
 #define STR_REPETITIONS "Wiederholungen"
-#define STR_STATUS "Status OK"
+#define STR_STATUS "tbd... Status "
 #else
 /* English */
 #define STR_PROJECT_NAME "Photostick"
